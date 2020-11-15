@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Webcam : Setting</title>
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+  <body>
+    <h1>Settings</h1>
+    <form action="setting_post" method="POST">
+      <h2> Input Text </h2>
+      <div class="textcontainer">
+        <input type="text" name="textbox">
+      </div>
+    
+      <h2> Checkbox </h2>
+      <div class="chkboxcontainer">
+        <input type="checkbox" name="check1" value="check1">check1
+        <input type="checkbox" name="check2" value="check2">check2
+        <input type="checkbox" name="check3" value="check3">check3
+      </div>
+      
+      <h2> Slider </h2>
+      <div class="slidecontainer">
+        <input type="range" min="0" max="65535" value="0" class="slider" name="range1" id="range1">
+        <p>Gain: <span id="range1val"></span></p>
+      </div>
+      
+      <h2> Dropdown </h2>
+      <div class="dropdowncontainer">
+      	<select name="drop1">
+      	  <option value="30Hz">30Hz</option>
+          <option value="40Hz">40Hz</option>
+          <option value="50Hz">50Hz</option>
+          <option value="60Hz" selected="selected">60Hz</option>
+        </select>
+      </div>
+      
+      <h2> Radio Button </h2>
+      <div class="radiocontainer">
+        <input type="radio" name="radio1" value="640_480">640_480
+        <input type="radio" name="radio2" value="1024_768">1024_768
+        <input type="radio" name="radio3" value="1920_1080">1920_1080
+      </div>
+      
+      <h2> Submit </h2>
+      <input type="submit" name="btn1" value="submit">
+      
+    </form>
+  </body>
+  <script>
+    var slider = document.getElementById("range1");
+    var output = document.getElementById("range1val");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+  </script>
+<html>
